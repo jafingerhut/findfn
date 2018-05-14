@@ -11,9 +11,12 @@ user=> (use '[clojail.testers :only [secure-tester] :rename {secure-tester teste
 nil
 user=> (find-fn tester 6 3 3) ; 6 is the expected output and the 3s are the input
 (clojure.core/+ clojure.core/unchecked-add clojure.core/+' clojure.core/unchecked-add-int)
-user=> (find-arg tester [2 3 4] map '% [1 2 3]) ; Finds a function to pass to a higher order function
+user=> (find-arg tester [2 3 4] 'map '% [1 2 3]) ; Finds a function to pass to a higher order function
 (clojure.core/unchecked-inc-int clojure.core/unchecked-inc clojure.core/inc clojure.core/inc')
 ```
+
+TBD: Document why the `map` argument in the example `find-arg` call
+above needs to be quoted.
 
 ## Usage
 
