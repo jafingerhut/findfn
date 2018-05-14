@@ -15,12 +15,20 @@ user=> (find-arg tester [2 3 4] 'map '% [1 2 3]) ; Finds a function to pass to a
 (clojure.core/unchecked-inc-int clojure.core/unchecked-inc clojure.core/inc clojure.core/inc')
 ```
 
+Note: I do not yet know precisely why, or what the security
+implications are of using these options when running the JVM, but it
+is normal to get a JVM security exception raised if you do not start
+your JVM with the command line option
+`-Djava.security.policy=example.policy`, where `example.policy` is a
+file in this repository.  See this project's `project.clj` file for an
+example of how to specify that in a Leiningen `project.clj` file.
+
 TBD: Document why the `map` argument in the example `find-arg` call
 above needs to be quoted.
 
 ## Usage
 
-   [findfn "0.1.0"]
+   [findfn "0.1.3"]
 
 ## License
 
